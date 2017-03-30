@@ -49,20 +49,22 @@ public class TicTacAdapter extends RecyclerView.Adapter<TicTacAdapter.TicTacView
 
         @OnClick(R.id.cell_container)
         void itemClicked() {
-            if (Utils.getShouldShowX()) {
-                Utils.setShouldShowX(false);
-                cellItems.get(getAdapterPosition()).setValue("X");
-            } else {
-                Utils.setShouldShowX(true);
-                cellItems.get(getAdapterPosition()).setValue("O");
-            }
+            if (cellItems.get(getAdapterPosition()).getValue().equals("P")) {
+                if (Utils.getShouldShowX()) {
+                    Utils.setShouldShowX(false);
+                    cellItems.get(getAdapterPosition()).setValue("X");
+                } else {
+                    Utils.setShouldShowX(true);
+                    cellItems.get(getAdapterPosition()).setValue("O");
+                }
 
-            if (Utils.checkWinner(cellItems)) {
-                cellItems.clear();
-                listener.onCellClicked(Utils.winner);
-            }
+                if (Utils.checkWinner(cellItems)) {
+                    cellItems.clear();
+                    listener.onCellClicked(Utils.winner);
+                }
 
-            notifyDataSetChanged();
+                notifyDataSetChanged();
+            }
         }
     }
 
