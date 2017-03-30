@@ -35,6 +35,10 @@ public class HomeActivity extends AppCompatActivity implements ClickOnCellListen
     TextView player1Text;
     @BindView(R.id.player2)
     TextView player2Text;
+    @BindView(R.id.player1_score)
+    TextView player1score;
+    @BindView(R.id.player2_score)
+    TextView player2score;
 
 
     private ArrayList<CellItem> cellItems;
@@ -129,8 +133,10 @@ public class HomeActivity extends AppCompatActivity implements ClickOnCellListen
     }
 
     private void setWinnerTexts() {
-        player1Text.setText("Player X  " + String.valueOf(PrefManager.getXWins()));
-        player2Text.setText("Player Y  " + String.valueOf(PrefManager.getYWins()));
+        player1Text.setText("Player X  ");
+        player1score.setText(String.valueOf(PrefManager.getXWins()));
+        player2Text.setText("Player Y  ");
+        player2score.setText(String.valueOf(PrefManager.getYWins()));
     }
 
     @Override

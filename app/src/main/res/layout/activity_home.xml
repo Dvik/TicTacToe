@@ -26,30 +26,60 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
-        android:layout_gravity="end"
         android:weightSum="1">
 
-        <TextView
-            android:id="@+id/player1"
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_weight="0.5"
+            android:layout_height="wrap_content"
             android:background="@color/colorAccent"
-            android:gravity="center"
             android:padding="20dp"
-            android:textColor="@android:color/white" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/player2"
+            <TextView
+                android:id="@+id/player1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/player1_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:textSize="24sp"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_weight="0.5"
+            android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:gravity="center"
             android:padding="20dp"
-            android:textColor="@android:color/white" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/player2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/player2_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
     </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

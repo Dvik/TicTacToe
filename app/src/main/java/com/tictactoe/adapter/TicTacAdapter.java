@@ -86,7 +86,7 @@ public class TicTacAdapter extends RecyclerView.Adapter<TicTacAdapter.TicTacView
 
     @Override
     public void onBindViewHolder(TicTacViewHolder holder, int position) {
-        holder.itemText.setText(cellItems.get(position).getValue());
+            holder.itemText.setText(cellItems.get(position).getValue());
     }
 
     @Override

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id = "@+id/cell_container"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="100dp"
     app:cardUseCompatPadding="true">
 
     <FrameLayout
@@ -19,7 +19,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textSize="20sp"
-            android:text="2"
             android:textStyle="bold"
             tools:text="X" />
 
