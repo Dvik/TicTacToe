@@ -1,7 +1,5 @@
 package com.tictactoe;
 
-import android.util.Log;
-
 import com.tictactoe.model.CellItem;
 
 import java.util.ArrayList;

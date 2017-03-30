@@ -84,7 +84,7 @@ public class HomeActivity extends AppCompatActivity implements ClickOnCellListen
         return super.onOptionsItemSelected(item);
     }
 
-    private void initializeCells() {
+    public void initializeCells() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 cellItems.add(new CellItem(i + 1, j + 1, "P"));
@@ -118,14 +118,12 @@ public class HomeActivity extends AppCompatActivity implements ClickOnCellListen
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-
         new AlertDialog.Builder(this)
                 .setTitle("Save Game")
                 .setMessage("Do you want to save the game??")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-
+                            
                     }
                 })
                 .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
