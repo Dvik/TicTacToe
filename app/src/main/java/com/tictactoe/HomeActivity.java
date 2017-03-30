@@ -64,7 +64,6 @@ public class HomeActivity extends AppCompatActivity implements ClickOnCellListen
         recyclerGame.setLayoutManager(new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL));
         tictacAdapter = new TicTacAdapter(cellItems, this, this);
         recyclerGame.setAdapter(new TicTacAdapter(cellItems, this, this));
-
     }
 
     @Override
@@ -82,7 +81,8 @@ public class HomeActivity extends AppCompatActivity implements ClickOnCellListen
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_refresh) {
+            reloadCells();
             return true;
         }
 
@@ -118,21 +118,14 @@ public class HomeActivity extends AppCompatActivity implements ClickOnCellListen
 
         setWinnerTexts();
 
-        cellItems.clear();
-        initializeCells();
-        tictacAdapter.notifyDataSetChanged();
-        Utils.winner = null;
+        reloadCells();
 
     }
 
     @Override
     public void gameOver() {
         Toast.makeText(this, "Game Over!!!", Toast.LENGTH_SHORT).show();
-
-        cellItems.clear();
-        initializeCells();
-        tictacAdapter.notifyDataSetChanged();
-        Utils.winner = null;
+        reloadCells();
     }
 
     private void setWinnerTexts() {
@@ -162,5 +155,13 @@ public class HomeActivity extends AppCompatActivity implements ClickOnCellListen
                     }
                 })
                 .show();
+    }
+
+    private void reloadCells() {
+        cellItems.clear();
+        initializeCells();
+        tictacAdapter = new TicTacAdapter(cellItems, this, this);
+        recyclerGame.setAdapter(new TicTacAdapter(cellItems, this, this));
+        Utils.winner = null;
     }
 }
