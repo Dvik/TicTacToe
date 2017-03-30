@@ -138,6 +138,11 @@ public class HomeActivity extends AppCompatActivity implements ClickOnCellListen
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         PrefManager.saveGameState(cellItems);
+
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        DatabaseReference myRef = database.getReference("gamestate");
+                        myRef.setValue(cellItems);
+
                         finish();
                     }
                 })
