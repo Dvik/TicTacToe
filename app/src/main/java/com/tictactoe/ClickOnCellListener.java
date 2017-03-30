@@ -9,4 +9,5 @@ import com.tictactoe.model.CellItem;
 public interface ClickOnCellListener {
 
     void onCellClicked(String winner);
+    void gameOver();
 }

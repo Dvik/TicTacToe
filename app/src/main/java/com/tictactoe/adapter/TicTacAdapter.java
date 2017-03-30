@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tictactoe.ClickOnCellListener;
 import com.tictactoe.Constants;
@@ -50,6 +51,7 @@ public class TicTacAdapter extends RecyclerView.Adapter<TicTacAdapter.TicTacView
         @OnClick(R.id.cell_container)
         void itemClicked() {
             if (cellItems.get(getAdapterPosition()).getValue().equals("P")) {
+
                 if (Utils.getShouldShowX()) {
                     Utils.setShouldShowX(false);
                     cellItems.get(getAdapterPosition()).setValue("X");
@@ -63,9 +65,14 @@ public class TicTacAdapter extends RecyclerView.Adapter<TicTacAdapter.TicTacView
                     listener.onCellClicked(Utils.winner);
                 }
 
+                if (Utils.checkIfGameOver(cellItems)) {
+                    listener.gameOver();
+                }
+
                 notifyDataSetChanged();
             }
         }
+
     }
 
     public TicTacAdapter(ArrayList<CellItem> cellItems, ClickOnCellListener listener, Context context) {

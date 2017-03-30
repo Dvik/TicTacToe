@@ -125,6 +125,16 @@ public class HomeActivity extends AppCompatActivity implements ClickOnCellListen
 
     }
 
+    @Override
+    public void gameOver() {
+        Toast.makeText(this, "Game Over!!!", Toast.LENGTH_SHORT).show();
+
+        cellItems.clear();
+        initializeCells();
+        tictacAdapter.notifyDataSetChanged();
+        Utils.winner = null;
+    }
+
     private void setWinnerTexts() {
         player1Text.setText("Player X  " + String.valueOf(PrefManager.getXWins()));
         player2Text.setText("Player Y  " + String.valueOf(PrefManager.getYWins()));

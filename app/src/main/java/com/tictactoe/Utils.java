@@ -20,6 +20,7 @@ public class Utils {
 
         setValues(cellItems);
 
+
         if (checkHorizontal()) {
             return true;
         }
@@ -31,6 +32,7 @@ public class Utils {
         if (checkDiagonal()) {
             return true;
         }
+
 
         return false;
     }
@@ -45,6 +47,18 @@ public class Utils {
         value6 = cellItems.get(6).getValue();
         value7 = cellItems.get(7).getValue();
         value8 = cellItems.get(8).getValue();
+    }
+
+    public static Boolean checkIfGameOver(ArrayList<CellItem> cellItems) {
+        int count = 0;
+        for (int i = 0; i < cellItems.size(); i++) {
+            if (cellItems.get(i).getValue().equals("P"))
+                count++;
+        }
+        if (count == 0)
+            return true;
+
+        return false;
     }
 
     private static Boolean checkHorizontal() {
