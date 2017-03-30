@@ -16,6 +16,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.tictactoe.adapter.TicTacAdapter;
 import com.tictactoe.model.CellItem;
 
@@ -101,8 +103,17 @@ public class HomeActivity extends AppCompatActivity implements ClickOnCellListen
 
         if (winner.equals("X")) {
             PrefManager.setXWins(PrefManager.getXWins() + 1);
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference("playerX");
+            myRef.setValue(PrefManager.getXWins());
+
         } else {
             PrefManager.setYWins(PrefManager.getYWins() + 1);
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference("playerY");
+            myRef.setValue(PrefManager.getXWins());
         }
 
         setWinnerTexts();
