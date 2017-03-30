@@ -54,7 +54,10 @@ public class HomeActivity extends AppCompatActivity implements ClickOnCellListen
 
         cellItems = new ArrayList<>();
 
-        initializeCells();
+        if (PrefManager.getGameState() != null)
+            cellItems = PrefManager.getGameState();
+        else
+            initializeCells();
 
         recyclerGame.setLayoutManager(new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL));
         tictacAdapter = new TicTacAdapter(cellItems, this, this);
@@ -123,11 +126,13 @@ public class HomeActivity extends AppCompatActivity implements ClickOnCellListen
                 .setMessage("Do you want to save the game??")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                            
+                        PrefManager.saveGameState(cellItems);
+                        finish();
                     }
                 })
                 .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+                        finish();
                     }
                 })
                 .show();

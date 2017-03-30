@@ -60,12 +60,12 @@ public class PrefManager {
         editor.commit();
     }
 
-    public static List<CellItem> getGameState() {
+    public static ArrayList<CellItem> getGameState() {
         Gson gson = new Gson();
         String json = pref.getString(KEY_GAME_STATE, "");
         Type type = new TypeToken<List<CellItem>>() {
         }.getType();
-        List<CellItem> cellItems = gson.fromJson(json, type);
+        ArrayList<CellItem> cellItems = gson.fromJson(json, type);
         return cellItems;
     }
 
